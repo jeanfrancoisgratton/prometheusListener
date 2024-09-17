@@ -20,7 +20,7 @@
 Name:       prometheusListener
 Version:    %{_version}
 Release:    %{_rel}
-Summary:    Prometheus File-based Service Discovery listener and consumer
+Summary:    Prometheus File-based Service Discovery listener
 
 Group:      monitoring api
 License:    GPL2.0
@@ -29,11 +29,11 @@ URL:        https://git.famillegratton.net:3000/devops/prometheusFileSD
 Source0:    %{name}-%{_version}.tar.gz
 #BuildArchitectures: x86_64
 BuildRequires: gcc
-#Requires: sudo
-#Obsoletes: vmman1 > 1.140
+#Requires:
+#Obsoletes:
 
 %description
-Prometheus File-based Service Discovery listener and consumer
+Prometheus File-based Service Discovery listener
 
 %prep
 %autosetup

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd /opt/bin
-sudo chgrp -R devops .
-sudo chmod 775 /opt/bin/prometheusSDlistener
+touch /etc/prometheus/prometheusListener.json
+chown -R prometheus:prometheus /etc/prometheus
 
+systemctl daemon-reload

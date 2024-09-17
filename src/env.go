@@ -19,7 +19,7 @@ type Config_s struct {
 func loadConfig() (Config_s, *cerr.CustomError) {
 	var payload Config_s
 
-	rcFile := filepath.Join("/etc", "prometheusListener.json")
+	rcFile := filepath.Join("/etc", "prometheus", "prometheusListener.json")
 	_, err := os.Stat(rcFile)
 	// We need to create the environment file if it does not exist
 	if os.IsNotExist(err) {
