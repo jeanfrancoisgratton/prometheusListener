@@ -1,0 +1,13 @@
+[Unit]
+Description=Prometheus SD Listener Service
+After=network.target
+
+[Service]
+User=prometheus
+Group=prometheus
+ExecStart=/opt/sbin/prometheusSDlistener
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

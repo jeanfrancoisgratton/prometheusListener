@@ -1,0 +1,8 @@
+#!/usr/bin/env ash
+
+chmod 775 /opt/sbin/prometheusSDlistener
+
+rc-update add prometheusSDlistener
+rc-service prometheusSDlistener start
+
+exit 0

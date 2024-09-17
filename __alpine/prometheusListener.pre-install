@@ -1,0 +1,19 @@
+#!/usr/bin/env ash
+
+# Create openrc init file
+cat << EOF > /etc/init.d/prometheusSDlistener
+#!/sbin/openrc-run
+
+name="prometheusSDlistener"
+description="Prometheus file-base service discovery listener"
+command="/opt/sbin/prometheusSDlistener"
+command_background=true
+pidfile="/run/prometheusSDlistener.pid"
+
+depend() {
+  need net
+}
+EOF
+chmod 755 /etc/init.d/prometheusSDlistener
+
+exit 0

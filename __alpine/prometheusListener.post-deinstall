@@ -1,0 +1,4 @@
+#!/usr/bin/env ash
+
+rm /etc/init.d/prometheusSDlistener
+exit 0
