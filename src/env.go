@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	cerr "github.com/jeanfrancoisgratton/customError"
 	hf "github.com/jeanfrancoisgratton/helperFunctions"
 	"os"
@@ -23,7 +24,8 @@ func loadConfig() (Config_s, *cerr.CustomError) {
 	_, err := os.Stat(rcFile)
 	// We need to create the environment file if it does not exist
 	if os.IsNotExist(err) {
-		panic("Configuration file not found")
+		f := fmt.Sprintf("Configuration file %s not found", rcFile)
+		panic(f)
 	}
 
 	jFile, err := os.ReadFile(rcFile)
