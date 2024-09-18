@@ -40,7 +40,7 @@ func main() {
 		os.Exit(0)
 	}
 
-	if _, err := os.Stat("/etc/prometheusListener.json"); errors.Is(err, os.ErrNotExist) {
+	if _, err := os.Stat("/etc/prometheus/prometheusListener.json"); errors.Is(err, os.ErrNotExist) {
 		fmt.Println("The configuration file is absent, please run this tool with the -setup flag")
 		os.Exit(0)
 	}
