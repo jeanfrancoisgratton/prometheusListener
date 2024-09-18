@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-if getent group devops > /dev/null; then
-  exit 0
+if getent group prometheus > /dev/null; then
+  # group exists
 else
-  if getent group 2500; then
-    groupadd devops
-  else
-    groupadd -g 2500 devops
-  fi
+  groupadd -g 1700 prometheus
+fi
+
+if getent passwd prometheus > /dev/null; then
+  # user exists
+else
+  useradd -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
 fi
