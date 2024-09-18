@@ -88,6 +88,7 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target
 EOF
+
 chmod 644 /etc/systemd/system/prometheusSDlistener.service
 systemctl daemon-reload
 
@@ -96,6 +97,7 @@ systemctl stop prometheusSDlistener
 systemctl disable prometheusSDlistener
 
 %postun
+rm -f /etc/systemd/system/prometheusSDlistener.service
 systemctl daemon-reload
 
 %files
@@ -107,12 +109,4 @@ systemctl daemon-reload
 * Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
 - new package built with tito
 
-* Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
-- new package built with tito
-
-* Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
-- new package built with tito
-
-* Mon Sep 16 2024 RPM Builder <builder@famillegratton.net> 1.01.00-0
-- initial package
 
