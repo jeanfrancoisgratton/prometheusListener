@@ -69,6 +69,8 @@ systemctl daemon-reload
 /etc/systemd/system/prometheusSDlistener.service
 
 %changelog
+* Tue Sep 17 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
+
 * Mon Sep 16 2024 RPM Builder <builder@famillegratton.net> 1.01.00-0
 - initial package
 
