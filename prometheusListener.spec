@@ -97,23 +97,9 @@ systemctl daemon-reload
 
 %changelog
 * Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.03.01-0
-- version bump (jean-francois@famillegratton.net)
-- yet another fix (jean-francois@famillegratton.net)
+- new package built with tito
 
 * Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.03.00-0
 - Version bump, forgotten in previous commit (jean-francois@famillegratton.net)
 - Config file path fix (jean-francois@famillegratton.net)
-
-* Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-2
-- More rpm packaging fixes (jean-francois@famillegratton.net)
-
-* Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-1
-- Fixed preinstall scriptlet (jean-francois@famillegratton.net)
-
-* Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
-- new package built with tito
-
-* Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
-- new package built with tito
-
 
