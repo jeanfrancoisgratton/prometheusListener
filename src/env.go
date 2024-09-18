@@ -44,7 +44,7 @@ func (cs Config_s) SaveEnvironmentFile() *cerr.CustomError {
 	if err != nil {
 		return &cerr.CustomError{Title: err.Error(), Fatality: cerr.Fatal}
 	}
-	rcFile := filepath.Join("/etc", "prometheusListener.json")
+	rcFile := filepath.Join("/etc", "prometheus", "prometheusListener.json")
 	if err = os.WriteFile(rcFile, jStream, 0644); err != nil {
 		return &cerr.CustomError{Title: "Unable to write JSON file", Message: err.Error(), Fatality: cerr.Fatal}
 	}
