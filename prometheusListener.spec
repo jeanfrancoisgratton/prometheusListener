@@ -12,8 +12,8 @@
 %define _build_id_links none
 %define _name prometheusListener
 %define _prefix /opt
-%define _version 1.02.00
-%define _rel 2
+%define _version 1.03.00
+%define _rel 0
 %define _binaryname prometheusSDlistener
 
 Name:       prometheusListener
