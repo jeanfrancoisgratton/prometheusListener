@@ -47,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %pre
 getent group prometheus > /dev/null 2>&1 || groupadd prometheus
-getent passwd prometheus > /dev/null 2>&1 || useradd -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
+getent passwd prometheus > /dev/null 2>&1 || useradd -g prometheus -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
 exit 0
 
 %install
