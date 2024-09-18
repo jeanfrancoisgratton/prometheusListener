@@ -23,7 +23,7 @@ Summary:    Prometheus File-based Service Discovery listener
 
 Group:      monitoring api
 License:    GPL2.0
-URL:        https://git.famillegratton.net:3000/devops/prometheusFileSD
+URL:        https://git.famillegratton.net:3000/monitoring/prometheusListener
 
 Source0:    %{name}-%{_version}.tar.gz
 #BuildArchitectures: x86_64
@@ -104,6 +104,9 @@ systemctl daemon-reload
 /opt/sbin/%{_binaryname}
 
 %changelog
+* Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
+- new package built with tito
+
 * Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
 - new package built with tito
 
