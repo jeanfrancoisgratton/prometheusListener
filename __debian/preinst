@@ -1,13 +1,4 @@
 #!/usr/bin/env bash
 
-if getent group prometheus > /dev/null; then
-  # group exists
-else
-  groupadd -g 1700 prometheus
-fi
-
-if getent passwd prometheus > /dev/null; then
-  # user exists
-else
-  useradd -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
-fi
+getent group prometheus > /dev/null 2>&1 || groupadd prometheus
+getent passwd prometheus > /dev/null 2>&1 || useradd -g prometheus -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
