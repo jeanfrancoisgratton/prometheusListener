@@ -87,8 +87,6 @@ systemctl daemon-reload
 * Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
 - new package built with tito
 
-* Tue Sep 17 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
-
 * Mon Sep 16 2024 RPM Builder <builder@famillegratton.net> 1.01.00-0
 - initial package
 
