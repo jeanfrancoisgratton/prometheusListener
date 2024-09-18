@@ -3,20 +3,11 @@
 if getent group prometheus > /dev/null; then
   # group exists
 else
-  if getent group 17000 > /dev/null; then
-    groupadd devops
-  else
-    groupadd -g 1700 prometheus
-  fi
+  groupadd -g 1700 prometheus
 fi
 
 if getent passwd prometheus > /dev/null; then
-  # group exists
+  # user exists
 else
-  if getent passwd prometheus  > /dev/null; then
-    useradd -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
-  else
-    useradd -u 17001 -g 17000 -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
-  fi
+  useradd -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
 fi
-

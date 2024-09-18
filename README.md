@@ -1,3 +1,7 @@
 # prometheusListener
+___
 
-Put your description here. This is what will be shown on the repo main page.
+ A tool to dynamically add or remove hosts to your prometheus service
+
+## Basic concept
+
