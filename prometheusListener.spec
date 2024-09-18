@@ -96,6 +96,10 @@ systemctl daemon-reload
 /opt/sbin/%{_binaryname}
 
 %changelog
+* Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.03.01-0
+- version bump (jean-francois@famillegratton.net)
+- yet another fix (jean-francois@famillegratton.net)
+
 * Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.03.00-0
 - Version bump, forgotten in previous commit (jean-francois@famillegratton.net)
 - Config file path fix (jean-francois@famillegratton.net)
