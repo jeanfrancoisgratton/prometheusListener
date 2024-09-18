@@ -96,6 +96,9 @@ systemctl daemon-reload
 /opt/sbin/%{_binaryname}
 
 %changelog
+* Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-2
+- More rpm packaging fixes (jean-francois@famillegratton.net)
+
 * Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-1
 - Fixed preinstall scriptlet (jean-francois@famillegratton.net)
 
