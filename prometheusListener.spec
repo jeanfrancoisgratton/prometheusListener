@@ -63,11 +63,32 @@ exit 0
 install -d %{buildroot}/opt/sbin
 install -d %{buildroot}/etc/systemd/system/
 install -d %{buildroot}/etc/prometheus/
-install -Dpm 0644 %{_sourcedir}/prometheusSDlistener.service %{buildroot}/etc/systemd/system/prometheusSDlistner.service
+#install -Dpm 0644 %{_sourcedir}/prometheusSDlistener.service %{buildroot}/etc/systemd/system/prometheusSDlistener.service
 install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}/opt/sbin/%{_binaryname}
 
 %post
 touch /etc/prometheus/prometheusListener.json
+
+cat << EOF > /etc/systemd/system/prometheusSDlistener.service
+[Unit]
+Description=Prometheus SD Listener Service
+After=network.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/opt/sbin/prometheusSDlistener
+Restart=on-failure
+RestartSec=10
+# The following is for future use as the daemon does not log right now
+#StandardOutput=append:/var/log/prometheusSDlistener.log
+#StandardError=append:/var/log/prometheusSDlistener.err
+
+[Install]
+WantedBy=multi-user.target
+EOF
+chmod 644 /etc/systemd/system/prometheusSDlistener.service
 systemctl daemon-reload
 
 %preun
