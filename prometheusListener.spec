@@ -13,7 +13,7 @@
 %define _name prometheusListener
 %define _prefix /opt
 %define _version 1.02.00
-%define _rel 0
+%define _rel 1
 %define _binaryname prometheusSDlistener
 
 Name:       prometheusListener
@@ -46,17 +46,8 @@ strip %{_sourcedir}/%{_binaryname}
 rm -rf $RPM_BUILD_ROOT
 
 %pre
-if getent group prometheus > /dev/null; then
-  # group exists
-else
-  groupadd -g 1700 prometheus
-fi
-
-if getent passwd prometheus > /dev/null; then
-  # user exists
-else
-  useradd -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
-fi
+getent group prometheus > /dev/null 2>&1 || groupadd prometheus
+getent passwd prometheus > /dev/null 2>&1 || useradd -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
 exit 0
 
 %install
