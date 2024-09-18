@@ -14,7 +14,6 @@
 %define _prefix /opt
 %define _version 1.02.00
 %define _rel 0
-#%define _arch x86_64
 %define _binaryname prometheusSDlistener
 
 Name:       prometheusListener
@@ -47,18 +46,33 @@ strip %{_sourcedir}/%{_binaryname}
 rm -rf $RPM_BUILD_ROOT
 
 %pre
+if getent group prometheus > /dev/null; then
+  # group exists
+else
+  groupadd -g 1700 prometheus
+fi
+
+if getent passwd prometheus > /dev/null; then
+  # user exists
+else
+  useradd -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
+fi
 exit 0
 
 %install
 install -d %{buildroot}/opt/sbin
 install -d %{buildroot}/etc/systemd/system/
+install -d %{buildroot}/etc/prometheus/
 install -Dpm 0644 %{_sourcedir}/prometheusSDlistener.service %{buildroot}/etc/systemd/system/prometheusSDlistner.service
 install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}/opt/sbin/%{_binaryname}
 
 %post
+touch /etc/prometheus/prometheusListener.json
 systemctl daemon-reload
 
 %preun
+systemctl stop prometheusSDlistener
+systemctl disable prometheusSDlistener
 
 %postun
 systemctl daemon-reload
