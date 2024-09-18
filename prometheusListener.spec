@@ -96,6 +96,9 @@ systemctl daemon-reload
 /opt/sbin/%{_binaryname}
 
 %changelog
+* Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.03.02-0
+- More path fixes (jean-francois@famillegratton.net)
+
 * Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.03.01-0
 - new package built with tito
 
