@@ -63,7 +63,6 @@ exit 0
 install -d %{buildroot}/opt/sbin
 install -d %{buildroot}/etc/systemd/system/
 install -d %{buildroot}/etc/prometheus/
-#install -Dpm 0644 %{_sourcedir}/prometheusSDlistener.service %{buildroot}/etc/systemd/system/prometheusSDlistener.service
 install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}/opt/sbin/%{_binaryname}
 
 %post
@@ -103,7 +102,6 @@ systemctl daemon-reload
 %files
 %defattr(-,root,root,-)
 /opt/sbin/%{_binaryname}
-/etc/systemd/system/prometheusSDlistener.service
 
 %changelog
 * Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
