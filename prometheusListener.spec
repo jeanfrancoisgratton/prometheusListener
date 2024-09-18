@@ -95,6 +95,9 @@ systemctl daemon-reload
 /opt/sbin/%{_binaryname}
 
 %changelog
+* Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-1
+- Fixed preinstall scriptlet (jean-francois@famillegratton.net)
+
 * Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.02.00-0
 - new package built with tito
 
