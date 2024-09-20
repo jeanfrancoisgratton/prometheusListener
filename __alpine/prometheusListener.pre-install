@@ -8,6 +8,7 @@ name="prometheusSDlistener"
 description="Prometheus file-base service discovery listener"
 command="/opt/sbin/prometheusSDlistener"
 command_background=true
+command_user="prometheus:prometheus"
 pidfile="/run/prometheusSDlistener.pid"
 
 depend() {
