@@ -96,6 +96,16 @@ systemctl daemon-reload
 /opt/sbin/%{_binaryname}
 
 %changelog
+* Fri Sep 20 2024 RPM Builder <builder@famillegratton.net> 1.03.03-0
+- Final script fix (alpine) (jean-francois@famillegratton.net)
+- added runtime dependencies (jean-francois@famillegratton.net)
+- More alpine build script fixes (jean-francois@famillegratton.net)
+- Fixed alpine build scripts (jean-francois@famillegratton.net)
+- Changed message in targets dir, version bump (jean-
+  francois@famillegratton.net)
+- Fixing DEB, now (jean-francois@famillegratton.net)
+- Version bump for debian (builder@famillegratton.net)
+
 * Wed Sep 18 2024 RPM Builder <builder@famillegratton.net> 1.03.02-0
 - More path fixes (jean-francois@famillegratton.net)
 
