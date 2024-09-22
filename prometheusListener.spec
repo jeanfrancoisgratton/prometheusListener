@@ -95,6 +95,9 @@ systemctl daemon-reload
 /opt/sbin/%{_binaryname}
 
 %changelog
+* Sun Sep 22 2024 RPM Builder <builder@famillegratton.net> 1.04.00-0
+- Moved config file in another directory (jean-francois@famillegratton.net)
+
 * Fri Sep 20 2024 RPM Builder <builder@famillegratton.net> 1.03.03-0
 - Final script fix (alpine) (jean-francois@famillegratton.net)
 - added runtime dependencies (jean-francois@famillegratton.net)
