@@ -36,7 +36,7 @@ func main() {
 	}
 	// -version flag
 	if *versionFlag {
-		fmt.Printf("%s %s\n", filepath.Base(os.Args[0]), hf.White(fmt.Sprintf("1.02.00-0-%s 2024.09.16", runtime.GOARCH)))
+		fmt.Printf("%s %s\n", filepath.Base(os.Args[0]), hf.White(fmt.Sprintf("1.04.00-%s 2024.09.22", runtime.GOARCH)))
 		os.Exit(0)
 	}
 
