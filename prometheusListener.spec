@@ -12,7 +12,7 @@
 %define _build_id_links none
 %define _name prometheusListener
 %define _prefix /opt
-%define _version 1.03.02
+%define _version 1.04.00
 %define _rel 0
 %define _binaryname prometheusSDlistener
 
@@ -56,9 +56,8 @@ install -d %{buildroot}/etc/systemd/system/
 install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}/opt/sbin/%{_binaryname}
 
 %post
-mkdir -p /etc/prometheus
-touch /etc/prometheus/prometheusListener.json
-chown -R prometheus:prometheus /etc/prometheus
+touch /etc/prometheusSDlistener.json
+chown -R prometheus:prometheus /etc/prometheusSDlistener
 
 cat << EOF > /etc/systemd/system/prometheusSDlistener.service
 [Unit]

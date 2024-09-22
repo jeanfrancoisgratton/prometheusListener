@@ -26,6 +26,6 @@ fi
 if grep -q "^prometheus:" /etc/passwd; then
     # all good
 else
-    adduser -D -G builder -g 'Prometheus SD listner and prometheus server' -h /opt/prometheus -s /bin/bash prometheus
+    adduser -D -G builder -g 'Prometheus SD listner' -h /opt/prometheus -s /bin/bash prometheus
 fi
 exit 0
