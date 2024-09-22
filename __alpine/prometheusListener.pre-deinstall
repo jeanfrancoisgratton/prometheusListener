@@ -1,6 +1,6 @@
 #!/usr/bin/env ash
 
-rc-service rc-service prometheusSDlistener stop
+rc-service prometheusSDlistener stop
 rc-update del prometheusSDlistener
 
 exit 0

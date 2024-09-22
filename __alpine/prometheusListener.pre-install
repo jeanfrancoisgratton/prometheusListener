@@ -8,6 +8,7 @@ name="prometheusSDlistener"
 description="Prometheus file-base service discovery listener"
 command="/opt/sbin/prometheusSDlistener"
 command_background=true
+command_user="prometheus:prometheus"
 pidfile="/run/prometheusSDlistener.pid"
 
 depend() {
@@ -16,16 +17,7 @@ depend() {
 EOF
 chmod 755 /etc/init.d/prometheusSDlistener
 
-# Check if the group exists
-if grep -q "^prometheus:" /etc/group; then
-    # all good
-else
-    addgroup prometheus
-fi
 
-if grep -q "^prometheus:" /etc/passwd; then
-    # all good
-else
-    adduser -D -G builder -g 'Prometheus SD listner' -h /opt/prometheus -s /bin/bash prometheus
-fi
-exit 0
+# Create group and user
+getent group prometheus > /dev/null 2>&1 || addgroup prometheus
+getent passwd prometheus > /dev/null 2>&1 || adduser -D -g 'Prometheus SD listener' -h /opt/prometheus -s /bin/bash -G prometheus prometheus

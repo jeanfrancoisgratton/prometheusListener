@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"os"
 	"path/filepath"
+	"time"
 )
 
 func fileHandler(w http.ResponseWriter, r *http.Request) {
@@ -39,7 +41,8 @@ func handleFileOperation(r *http.Request) (int, string) {
 		if _, err := os.Stat(targetHost); !os.IsNotExist(err) {
 			return http.StatusConflict, `{"error": "Host already present in inventory"}`
 		}
-		err := os.WriteFile(targetHost, []byte("Added by "+clientHost+"\n"), 0644)
+		msg := fmt.Sprintf("Added by %s on %s\n", clientHost, fmt.Sprintf("%s", time.Now().Format("2006/01/02 15:04:05")))
+		err := os.WriteFile(targetHost, []byte(msg), 0644)
 		if err != nil {
 			return http.StatusInternalServerError, `{"error": "` + err.Error() + `"}`
 		}

@@ -1,6 +1,9 @@
 #!/usr/bin/env ash
 
 chmod 775 /opt/sbin/prometheusSDlistener
+mkdir /etc/prometheus
+touch /etc/prometheusSDlistener.json
+chown -R prometheus:prometheus /etc/prometheusSDlistener.json
 
 rc-update add prometheusSDlistener
 rc-service prometheusSDlistener start
