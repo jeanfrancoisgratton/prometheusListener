@@ -12,7 +12,7 @@
 %define _build_id_links none
 %define _name prometheusListener
 %define _prefix /opt
-%define _version 1.04.00
+%define _version 1.04.01
 %define _rel 1
 %define _binaryname prometheusSDlistener
 

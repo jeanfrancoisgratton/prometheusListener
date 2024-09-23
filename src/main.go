@@ -36,7 +36,7 @@ func main() {
 	}
 	// -version flag
 	if *versionFlag {
-		fmt.Printf("%s %s\n", filepath.Base(os.Args[0]), hf.White(fmt.Sprintf("1.04.00-%s 2024.09.22", runtime.GOARCH)))
+		fmt.Printf("%s %s\n", filepath.Base(os.Args[0]), hf.White(fmt.Sprintf("1.04.01-%s 2024.09.22", runtime.GOARCH)))
 		os.Exit(0)
 	}
 
@@ -55,7 +55,7 @@ func main() {
 	log.Printf("Starting server on :%d\n", cfg.Port)
 	err := http.ListenAndServeTLS(fmt.Sprintf(":%d", cfg.Port), cfg.Cert, cfg.Key, nil)
 	if err != nil {
-		log.Fatal(err)
+		fmt.Println("Unable to start: ", err)
 		os.Exit(1)
 	}
 }

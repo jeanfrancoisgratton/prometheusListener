@@ -1,8 +1,8 @@
 # Maintainer: J.F.Gratton <jean-francois@famillegratton.net>
 # Packager: Package builder <builder@famillegratton.net>
 pkgname=prometheusListener
-pkgver=1.04.00
-pkgrel=2
+pkgver=1.04.01
+pkgrel=0
 pkgdir=/data/packages
 builddir="$startdir/src/BUILD"
 pkgdesc="Prometheus File-based Service Discovery listener"
