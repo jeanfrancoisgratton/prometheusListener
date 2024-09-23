@@ -13,7 +13,7 @@
 %define _name prometheusListener
 %define _prefix /opt
 %define _version 1.04.01
-%define _rel 1
+%define _rel 0
 %define _binaryname prometheusSDlistener
 
 Name:       prometheusListener
