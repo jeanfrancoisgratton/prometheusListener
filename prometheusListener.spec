@@ -95,6 +95,13 @@ systemctl daemon-reload
 /opt/sbin/%{_binaryname}
 
 %changelog
+* Sun Sep 22 2024 RPM Builder <builder@famillegratton.net> 1.04.01-0
+- version bump (builder@famillegratton.net)
+- Automatic commit of package [prometheusListener] release [1.04.01-1].
+  (builder@famillegratton.net)
+- Giving some exits a more verbose message (jean-francois@famillegratton.net)
+- Removed extra directory from APK packaging (jean-francois@famillegratton.net)
+
 * Sun Sep 22 2024 RPM Builder <builder@famillegratton.net> 1.04.01-1
 - Giving some exits a more verbose message (jean-francois@famillegratton.net)
 - Removed extra directory from APK packaging (jean-francois@famillegratton.net)
