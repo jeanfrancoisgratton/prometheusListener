@@ -9,14 +9,6 @@ import (
 	"path/filepath"
 )
 
-type Config_s struct {
-	//CAcert    string `json:"cacert"`
-	Cert      string `json:"cert"`
-	Key       string `json:"key"`
-	Port      uint   `json:"port"`
-	TargetDir string `json:"targetdir"`
-}
-
 func loadConfig() (Config_s, *cerr.CustomError) {
 	var payload Config_s
 
