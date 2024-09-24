@@ -95,6 +95,11 @@ systemctl daemon-reload
 /opt/sbin/%{_binaryname}
 
 %changelog
+* Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-0
+- version bump (jean-francois@famillegratton.net)
+- changed incoming data from txt to json (jean-francois@famillegratton.net)
+- sync across networks (jean-francois@famillegratton.net)
+
 * Sun Sep 22 2024 RPM Builder <builder@famillegratton.net> 1.04.01-0
 - version bump (builder@famillegratton.net)
 - Automatic commit of package [prometheusListener] release [1.04.01-1].
