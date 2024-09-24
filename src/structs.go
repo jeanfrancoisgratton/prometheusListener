@@ -6,7 +6,11 @@ type ListenerPayload_s struct {
 	Labels  map[string]string `json:"labels,omitempty" yaml:"labels,omitempty"`
 }
 
-type ListenerPayloads_s []ListenerPayload_s
+// This struct contains the JSON payload and the command is should be acted upon
+type CommandPayload_s struct {
+	Command         string
+	ListenerPayload ListenerPayload_s
+}
 
 // The configuration infos needed to run the listener
 type Config_s struct {

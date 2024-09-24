@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/tls"
 	"errors"
 	"flag"
 	"fmt"
@@ -29,7 +30,7 @@ func main() {
 	if *setupFlag {
 		// Call the setup function and exit
 		if ce = setup(); ce != nil {
-			ce.Error()
+			fmt.Println(ce.Error())
 		} else {
 			return
 		}
@@ -47,15 +48,30 @@ func main() {
 
 	// Load the config file
 	if cfg, ce = loadConfig(); ce != nil {
-		ce.Error()
+		fmt.Println(ce.Error())
 	}
 
-	http.HandleFunc("/file", fileHandler)
+	// Ensure certFile and keyFile exist
+	if _, err := os.Stat(cfg.Cert); os.IsNotExist(err) {
+		log.Fatalf("Certificate file not found: %v", err)
+	}
+	if _, err := os.Stat(cfg.Key); os.IsNotExist(err) {
+		log.Fatalf("Key file not found: %v", err)
+	}
 
-	log.Printf("Starting server on :%d\n", cfg.Port)
-	err := http.ListenAndServeTLS(fmt.Sprintf(":%d", cfg.Port), cfg.Cert, cfg.Key, nil)
+	// Setup HTTPS server
+	http.HandleFunc("/", handler)
+	server := &http.Server{
+		Addr: fmt.Sprintf(":%s", cfg.Port),
+		TLSConfig: &tls.Config{
+			MinVersion: tls.VersionTLS12,
+		},
+	}
+
+	// Start the HTTPS server
+	log.Printf("Starting HTTPS server on port %d\n", cfg.Port)
+	err := server.ListenAndServeTLS(cfg.Cert, cfg.Key)
 	if err != nil {
-		fmt.Println("Unable to start: ", err)
-		os.Exit(1)
+		log.Fatalf("Unable to start server: %v", err)
 	}
 }
