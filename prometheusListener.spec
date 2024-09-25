@@ -76,15 +76,13 @@ systemctl daemon-reload
 /etc/systemd/system/prometheusSDlistener.service
 
 %changelog
+* Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-2
+- Moved the service file under sourcedir (jean-francois@famillegratton.net)
+- More fixes in specfile (jean-francois@famillegratton.net)
+
 * Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-1
 - Updated the specfile for proper systemd service handling (jean-
   francois@famillegratton.net)
-
-* Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-0
-- version bump (jean-francois@famillegratton.net)
-
-%changelog
-* Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-0
 - version bump (jean-francois@famillegratton.net)
 - changed incoming data from txt to json (jean-francois@famillegratton.net)
 - sync across networks (jean-francois@famillegratton.net)
