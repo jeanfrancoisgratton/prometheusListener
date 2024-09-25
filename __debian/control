@@ -1,5 +1,5 @@
 Package: prometheusListener
-Version: 2.01.00-1
+Version: 2.01.00-2
 Architecture: amd64
 Maintainer: J.F.Gratton <jean-francois@famillegratton.net>
 Description: Prometheus File-based Service Discovery listener
