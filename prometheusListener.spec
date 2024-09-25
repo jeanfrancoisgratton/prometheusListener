@@ -75,6 +75,9 @@ systemctl daemon-reload
 /etc/systemd/system/prometheusSDlistener.service
 
 %changelog
+* Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-4
+- fixed filename in specfile (jean-francois@famillegratton.net)
+
 * Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-3
 - another spin (jean-francois@famillegratton.net)
 
