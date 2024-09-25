@@ -13,7 +13,7 @@
 %define _name prometheusListener
 %define _prefix /opt
 %define _version 2.00.00
-%define _rel 1
+%define _rel 0
 %define _binaryname prometheusSDlistener
 
 Name:       prometheusListener
@@ -26,6 +26,8 @@ License:    GPL2.0
 URL:        https://git.famillegratton.net:3000/monitoring/prometheusListener
 
 Source0:    %{name}-%{_version}.tar.gz
+Source1:    prometheusSDlistener.service  # Add this line to include the service file
+
 BuildRequires: gcc systemd-rpm-macros
 
 %description
@@ -51,32 +53,32 @@ exit 0
 install -d %{buildroot}/opt/sbin
 install -d %{buildroot}/etc/systemd/system/
 install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}/opt/sbin/%{_binaryname}
-# Install the systemd service file
-install -Dpm 0644 %{_sourcedir}/prometheusSDlistener.service %{buildroot}/etc/systemd/system/prometheusSDlistener.service
+# Install the systemd service file from %{SOURCE1} (tarball) into /etc/systemd/system/
+install -Dpm 0644 %{SOURCE1} %{buildroot}/etc/systemd/system/prometheusSDlistener.service
 
 %post
 touch /etc/prometheusSDlistener.json
 chown -R prometheus:prometheus /etc/prometheusSDlistener
-# Reload systemd to apply the new service
 systemctl daemon-reload
-# Enable the service, but don't start it yet
 systemctl enable prometheusSDlistener
 
 %preun
-# Stop and disable the service if it's running
 if [ $1 -eq 0 ]; then
     systemctl stop prometheusSDlistener
     systemctl disable prometheusSDlistener
 fi
 
 %postun
-# Only reload daemon on uninstall
 systemctl daemon-reload
 
 %files
 %defattr(-,root,root,-)
 /opt/sbin/%{_binaryname}
 /etc/systemd/system/prometheusSDlistener.service
+
+%changelog
+* Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-0
+- version bump (jean-francois@famillegratton.net)
 
 %changelog
 * Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-0
