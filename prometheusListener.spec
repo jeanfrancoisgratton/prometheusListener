@@ -75,6 +75,9 @@ systemctl daemon-reload
 /etc/systemd/system/prometheusSDlistener.service
 
 %changelog
+* Wed Sep 25 2024 RPM Builder <builder@famillegratton.net> 2.01.00-1
+- Enforce config dir creation (jean-francois@famillegratton.net)
+
 * Wed Sep 25 2024 RPM Builder <builder@famillegratton.net> 2.01.00-0
 - Fixed data type on listening port (jean-francois@famillegratton.net)
 - Removed sysctl enable from packaging scripts (jean-
