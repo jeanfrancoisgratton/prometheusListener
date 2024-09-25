@@ -13,7 +13,7 @@
 %define _name prometheusListener
 %define _prefix /opt
 %define _version 2.00.00
-%define _rel 4
+%define _rel 5
 %define _binaryname prometheusSDlistener
 
 Name:       prometheusListener
@@ -58,7 +58,6 @@ install -Dpm 0644 %{_sourcedir}/%{_name}-%{_version}/src/prometheusSDlistener.se
 touch /etc/prometheusSDlistener.json
 chown -R prometheus:prometheus /etc/prometheusSDlistener.json
 systemctl daemon-reload
-systemctl enable prometheusSDlistener
 
 %preun
 if [ $1 -eq 0 ]; then

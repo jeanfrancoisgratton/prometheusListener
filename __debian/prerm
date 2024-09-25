@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 systemctl stop prometheusSDlistener
-systemctl disable prometheusSDlistener
+systemctl disable prometheusSDListener
 

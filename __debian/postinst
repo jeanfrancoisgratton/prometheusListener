@@ -4,3 +4,4 @@ touch /etc/prometheusSDlistener.json
 chown -R prometheus:prometheus /etc/prometheusSDlistener.json
 
 systemctl daemon-reload
+

@@ -2,7 +2,7 @@
 # Packager: Package builder <builder@famillegratton.net>
 pkgname=prometheusListener
 pkgver=2.00.00
-pkgrel=0
+pkgrel=1
 pkgdir=/data/packages
 builddir="$startdir/src/BUILD"
 pkgdesc="Prometheus File-based Service Discovery listener"

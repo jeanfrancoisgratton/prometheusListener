@@ -17,7 +17,6 @@ depend() {
 EOF
 chmod 755 /etc/init.d/prometheusSDlistener
 
-
 # Create group and user
 getent group prometheus > /dev/null 2>&1 || addgroup prometheus
 getent passwd prometheus > /dev/null 2>&1 || adduser -D -g 'Prometheus SD listener' -h /opt/prometheus -s /bin/bash -G prometheus prometheus
