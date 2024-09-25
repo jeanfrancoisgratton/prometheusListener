@@ -13,7 +13,7 @@
 %define _name prometheusListener
 %define _prefix /opt
 %define _version 2.00.00
-%define _rel 2
+%define _rel 3
 %define _binaryname prometheusSDlistener
 
 Name:       prometheusListener
@@ -52,8 +52,7 @@ exit 0
 install -d %{buildroot}/opt/sbin
 install -d %{buildroot}/etc/systemd/system/
 install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}/opt/sbin/%{_binaryname}
-# Install the systemd service file from %{SOURCE1} (tarball) into /etc/systemd/system/
-install -Dpm 0644 %{_sourcedir}/prometheusSDlistener.service %{buildroot}/etc/systemd/system/prometheusSDlistener.service
+install -Dpm 0644 %{_sourcedir}/%{_name}-%{_version}/src/prometheusSDlistener.service %{buildroot}/etc/systemd/system/prometheusSDlistener.service
 
 %post
 touch /etc/prometheusSDlistener.json
