@@ -77,6 +77,10 @@ systemctl daemon-reload
 /etc/systemd/system/prometheusSDlistener.service
 
 %changelog
+* Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-1
+- Updated the specfile for proper systemd service handling (jean-
+  francois@famillegratton.net)
+
 * Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-0
 - version bump (jean-francois@famillegratton.net)
 
