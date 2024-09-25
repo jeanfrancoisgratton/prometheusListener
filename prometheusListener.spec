@@ -13,7 +13,7 @@
 %define _name prometheusListener
 %define _prefix /opt
 %define _version 2.01.00
-%define _rel 0
+%define _rel 1
 %define _binaryname prometheusSDlistener
 
 Name:       prometheusListener
@@ -46,12 +46,12 @@ rm -rf $RPM_BUILD_ROOT
 %pre
 getent group prometheus > /dev/null 2>&1 || groupadd prometheus
 getent passwd prometheus > /dev/null 2>&1 || useradd -g prometheus -d /opt/prometheus -m -s /bin/bash prometheus > /dev/null
+mkdir /etc/prometheusSDlistener
 exit 0
 
 %install
 install -d %{buildroot}/opt/sbin
 install -d %{buildroot}/etc/systemd/system/
-install -d %{buildroot}/etc/prometheusSDlistener
 install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}/opt/sbin/%{_binaryname}
 install -Dpm 0644 %{_sourcedir}/%{_name}-%{_version}/src/prometheusSDlistener.service %{buildroot}/etc/systemd/system/prometheusSDlistener.service
 
