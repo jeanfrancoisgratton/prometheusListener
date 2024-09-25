@@ -75,6 +75,11 @@ systemctl daemon-reload
 /etc/systemd/system/prometheusSDlistener.service
 
 %changelog
+* Wed Sep 25 2024 RPM Builder <builder@famillegratton.net> 2.01.00-0
+- Fixed data type on listening port (jean-francois@famillegratton.net)
+- Removed sysctl enable from packaging scripts (jean-
+  francois@famillegratton.net)
+
 * Tue Sep 24 2024 RPM Builder <builder@famillegratton.net> 2.00.00-4
 - fixed filename in specfile (jean-francois@famillegratton.net)
 
