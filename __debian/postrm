@@ -1,5 +1,1 @@
 #!/usr/bin/env bash
-
-rm -rf /etc/systemd/system/prometheusSDlistener.service /etc/prometheusSDlistener/prometheusSDlistener.json
-
-
