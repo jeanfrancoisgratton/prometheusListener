@@ -21,6 +21,12 @@ var cfg Config_s
 func main() {
 	var ce *cerr.CustomError
 
+	// Create the config directory if it does not exist
+	if err := os.MkdirAll(filepath.Join("/etc", "prometheusSDlistener"), os.ModePerm); err != nil {
+		fmt.Println("Unable to create config directory: ", err)
+		os.Exit(1)
+	}
+
 	// Parse command-line flags
 	setupFlag := flag.Bool("setup", false, "Run setup and exit")
 	versionFlag := flag.Bool("version", false, "Show version")
@@ -37,11 +43,11 @@ func main() {
 	}
 	// -version flag
 	if *versionFlag {
-		fmt.Printf("%s %s\n", filepath.Base(os.Args[0]), hf.White(fmt.Sprintf("2.00.00TEST-%s 2024.09.24", runtime.GOARCH)))
+		fmt.Printf("%s %s\n", filepath.Base(os.Args[0]), hf.White(fmt.Sprintf("2.01.00-%s 2024.09.25", runtime.GOARCH)))
 		os.Exit(0)
 	}
 
-	if _, err := os.Stat("/etc/prometheusSDlistener.json"); errors.Is(err, os.ErrNotExist) {
+	if _, err := os.Stat(filepath.Join("/etc", "prometheusSDlistener", "prometheusSDlistener.json")); errors.Is(err, os.ErrNotExist) {
 		fmt.Println("The configuration file is absent, please run this tool with the -setup flag")
 		os.Exit(0)
 	}
@@ -62,7 +68,7 @@ func main() {
 	// Setup HTTPS server
 	http.HandleFunc("/", handler)
 	server := &http.Server{
-		Addr: fmt.Sprintf(":%s", cfg.Port),
+		Addr: fmt.Sprintf(":%d", cfg.Port),
 		TLSConfig: &tls.Config{
 			MinVersion: tls.VersionTLS12,
 		},
@@ -70,8 +76,9 @@ func main() {
 
 	// Start the HTTPS server
 	log.Printf("Starting HTTPS server on port %d\n", cfg.Port)
-	err := server.ListenAndServeTLS(cfg.Cert, cfg.Key)
-	if err != nil {
-		log.Fatalf("Unable to start server: %v", err)
+	serr := server.ListenAndServeTLS(cfg.Cert, cfg.Key)
+	if serr != nil {
+		fmt.Println("Unable to start server: ", serr)
+		os.Exit(1)
 	}
 }

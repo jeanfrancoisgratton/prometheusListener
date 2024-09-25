@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PKGDIR="prometheusListener-2.00.00-1_amd64"
+PKGDIR="prometheusListener-2.01.00-0_amd64"
 
 mkdir -p ${PKGDIR}/opt/sbin ${PKGDIR}/DEBIAN ${PKGDIR}/etc/systemd/system ${PKGDIR}/etc
 for i in control preinst prerm postinst postrm;do

@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-touch /etc/prometheusSDlistener.json
-chown -R prometheus:prometheus /etc/prometheusSDlistener.json
+mkdir -p /etd/prometheusSDlistener
+touch /etc/prometheusSDlistener/prometheusSDlistener.json
+chown -R prometheus:prometheus /etc/prometheusSDlistener
 
 systemctl daemon-reload
 

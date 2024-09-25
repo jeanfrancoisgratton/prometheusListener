@@ -12,7 +12,7 @@ import (
 func loadConfig() (Config_s, *cerr.CustomError) {
 	var payload Config_s
 
-	rcFile := filepath.Join("/etc", "prometheusSDlistener.json")
+	rcFile := filepath.Join("/etc", "prometheusSDlistener", "prometheusSDlistener.json")
 	_, err := os.Stat(rcFile)
 	// We need to create the environment file if it does not exist
 	if os.IsNotExist(err) {
@@ -38,7 +38,7 @@ func (cs Config_s) SaveEnvironmentFile() *cerr.CustomError {
 	if err != nil {
 		return &cerr.CustomError{Title: err.Error(), Fatality: cerr.Fatal}
 	}
-	rcFile := filepath.Join("/etc", "prometheusSDlistener.json")
+	rcFile := filepath.Join("/etc", "prometheusSDlistener", "prometheusSDlistener.json")
 	if err = os.WriteFile(rcFile, jStream, 0644); err != nil {
 		return &cerr.CustomError{Title: "Unable to write JSON file", Message: err.Error(), Fatality: cerr.Fatal}
 	}
