@@ -13,7 +13,7 @@
 %define _name prometheusListener
 %define _prefix /opt
 %define _version 2.00.00
-%define _rel 0
+%define _rel 2
 %define _binaryname prometheusSDlistener
 
 Name:       prometheusListener
@@ -26,7 +26,6 @@ License:    GPL2.0
 URL:        https://git.famillegratton.net:3000/monitoring/prometheusListener
 
 Source0:    %{name}-%{_version}.tar.gz
-Source1:    prometheusSDlistener.service  # Add this line to include the service file
 
 BuildRequires: gcc systemd-rpm-macros
 
@@ -54,7 +53,7 @@ install -d %{buildroot}/opt/sbin
 install -d %{buildroot}/etc/systemd/system/
 install -Dpm 0755 %{_sourcedir}/%{_binaryname} %{buildroot}/opt/sbin/%{_binaryname}
 # Install the systemd service file from %{SOURCE1} (tarball) into /etc/systemd/system/
-install -Dpm 0644 %{SOURCE1} %{buildroot}/etc/systemd/system/prometheusSDlistener.service
+install -Dpm 0644 %{_sourcedir}/prometheusSDlistener.service %{buildroot}/etc/systemd/system/prometheusSDlistener.service
 
 %post
 touch /etc/prometheusSDlistener.json

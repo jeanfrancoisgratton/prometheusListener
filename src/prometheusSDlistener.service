@@ -1,0 +1,17 @@
+[Unit]
+Description=Prometheus SD Listener Service
+After=network.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/opt/sbin/prometheusSDlistener
+Restart=on-failure
+RestartSec=10
+# The following is for future use as the daemon does not log right now
+#StandardOutput=append:/var/log/prometheusSDlistener.log
+#StandardError=append:/var/log/prometheusSDlistener.err
+
+[Install]
+WantedBy=multi-user.target
